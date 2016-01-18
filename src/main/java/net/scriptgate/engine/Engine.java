@@ -9,5 +9,6 @@ public class Engine {
     public static int HEIGHT;
     public static String TITLE;
     public static boolean verticalSyncDisabled = false;
+    public static float SPEED = 100.0f;
 
 }

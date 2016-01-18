@@ -17,7 +17,7 @@ public interface Application {
     default void onClick(int x, int y) {
     }
 
-    default void onKeyDown(int key) {
+    default void onKeyDown(Key key) {
     }
 
     default void destroy() {

@@ -1,11 +1,12 @@
 package net.scriptgate.engine;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Stream;
 
 public abstract class InputComponent {
 
-    private final List<Integer> pressedKeys;
+    private final Set<Key> pressedKeys;
 
     private int mouseX = 0;
     private int mouseY = 0;
@@ -17,7 +18,7 @@ public abstract class InputComponent {
     private boolean mousePressed = false;
 
     public InputComponent() {
-        this.pressedKeys = new ArrayList<>();
+        this.pressedKeys = new HashSet<>();
     }
 
     public int getMouseX() {
@@ -41,21 +42,19 @@ public abstract class InputComponent {
         this.shiftPressed = shiftPressed;
     }
 
-    public Integer[] getPressedKeys() {
-        Integer[] pressed = new Integer[pressedKeys.size()];
-        pressedKeys.toArray(pressed);
-        return pressed;
+    public Stream<Key> getPressedKeys() {
+        return pressedKeys.stream();
     }
 
-    public void keyPressed(int key) {
+    public void keyPressed(Key key) {
         if (!pressedKeys.contains(key)) {
             pressedKeys.add(key);
         }
     }
 
-    public void keyReleased(int key) {
+    public void keyReleased(Key key) {
         if (pressedKeys.contains(key)) {
-            pressedKeys.remove(pressedKeys.indexOf(key));
+            pressedKeys.remove(key);
         }
     }
 

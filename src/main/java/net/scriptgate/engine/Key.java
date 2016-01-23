@@ -4,10 +4,12 @@ public class Key {
 
     public final int keyCode;
     public final String keyName;
+    public final boolean shiftPressed;
 
-    public Key(int keyCode, String keyName) {
+    public Key(int keyCode, String keyName, boolean shiftPressed) {
         this.keyCode = keyCode;
         this.keyName = keyName;
+        this.shiftPressed = shiftPressed;
     }
 
     @Override
@@ -18,6 +20,7 @@ public class Key {
         Key key = (Key) o;
 
         if (keyCode != key.keyCode) return false;
+        if (shiftPressed != key.shiftPressed) return false;
         return keyName != null ? keyName.equals(key.keyName) : key.keyName == null;
 
     }
@@ -26,6 +29,7 @@ public class Key {
     public int hashCode() {
         int result = keyCode;
         result = 31 * result + (keyName != null ? keyName.hashCode() : 0);
+        result = 31 * result + (shiftPressed ? 1 : 0);
         return result;
     }
 
@@ -34,6 +38,7 @@ public class Key {
         return "Key{" +
                 "keyCode=" + keyCode +
                 ", keyName='" + keyName + '\'' +
+                ", shiftPressed=" + shiftPressed +
                 '}';
     }
 }

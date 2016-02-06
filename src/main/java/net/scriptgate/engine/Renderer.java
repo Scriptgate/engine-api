@@ -46,6 +46,10 @@ public interface Renderer {
 
     void drawRect(int x, int y, int width, int height);
 
+    default void fillRect(Rectangle rectangle) {
+        fillRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+    }
+
     void fillRect(int x, int y, int width, int height);
 
     BufferedImage printScreen();

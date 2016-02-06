@@ -5,11 +5,13 @@ public class Key {
     public final int keyCode;
     public final String keyName;
     public final boolean shiftPressed;
+    public final boolean ctrlPressed;
 
-    public Key(int keyCode, String keyName, boolean shiftPressed) {
+    public Key(int keyCode, String keyName, boolean shiftPressed, boolean ctrlPressed) {
         this.keyCode = keyCode;
         this.keyName = keyName;
         this.shiftPressed = shiftPressed;
+        this.ctrlPressed = ctrlPressed;
     }
 
     @Override

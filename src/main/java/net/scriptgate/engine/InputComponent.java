@@ -66,6 +66,10 @@ public abstract class InputComponent {
         mousePressed = false;
     }
 
+    public boolean isMousePressed() {
+        return mousePressed;
+    }
+
     public void setScreenSize(int width, int height) {
         screenWidth = width;
         screenHeight = height;

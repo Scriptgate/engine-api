@@ -15,6 +15,7 @@ public abstract class InputComponent {
     private int screenHeight = Engine.HEIGHT;
 
     private boolean shiftPressed = false;
+    private boolean ctrlPressed = false;
     private boolean mousePressed = false;
 
     public InputComponent() {
@@ -40,6 +41,14 @@ public abstract class InputComponent {
 
     public void setShiftPressed(boolean shiftPressed) {
         this.shiftPressed = shiftPressed;
+    }
+
+    public boolean isCtrlPressed() {
+        return ctrlPressed;
+    }
+
+    public void setCtrlPressed(boolean ctrlPressed) {
+        this.ctrlPressed = ctrlPressed;
     }
 
     public Stream<Key> getPressedKeys() {

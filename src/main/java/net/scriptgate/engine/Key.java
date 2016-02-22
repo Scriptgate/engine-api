@@ -3,7 +3,7 @@ package net.scriptgate.engine;
 public class Key {
 
     public final int keyCode;
-    public final String keyName;
+    private final String keyName;
     public final boolean shiftPressed;
     public final boolean ctrlPressed;
 
@@ -12,6 +12,10 @@ public class Key {
         this.keyName = keyName;
         this.shiftPressed = shiftPressed;
         this.ctrlPressed = ctrlPressed;
+    }
+
+    public String getKeyName() {
+        return keyName;
     }
 
     @Override

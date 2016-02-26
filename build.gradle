@@ -1,5 +1,5 @@
-group 'net.scriptgate'
-version '1.0-SNAPSHOT'
+group 'net.scriptgate.engine'
+version '0.0.1-SNAPSHOT'
 
 apply plugin: 'java'
 

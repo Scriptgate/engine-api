@@ -5,7 +5,6 @@ import net.scriptgate.common.Color4f;
 import net.scriptgate.common.Point;
 import net.scriptgate.common.Rectangle;
 
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 public interface Renderer {
@@ -33,8 +32,6 @@ public interface Renderer {
     Rectangle drawText(int x, int y, String text);
 
     void drawImage(int x, int y, String path);
-
-    void drawImage(int x, int y, Image img);
 
     void drawImage(String imagePath, Point position, Point offset, Point size);
 

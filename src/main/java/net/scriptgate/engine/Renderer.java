@@ -5,8 +5,6 @@ import net.scriptgate.common.Color4f;
 import net.scriptgate.common.Point;
 import net.scriptgate.common.Rectangle;
 
-import java.awt.image.BufferedImage;
-
 public interface Renderer {
 
     void translate(int x, int y);
@@ -48,8 +46,6 @@ public interface Renderer {
     }
 
     void fillRect(int x, int y, int width, int height);
-
-    BufferedImage printScreen();
 
     Rectangle getBounds(int x, int y, String text);
 }

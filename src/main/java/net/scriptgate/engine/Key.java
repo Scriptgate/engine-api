@@ -18,6 +18,16 @@ public class Key {
         return keyName;
     }
 
+    public static Key from(int keyCode, String keyName, boolean shiftPressed, boolean ctrlPressed) {
+
+        keyName = keyName == null || shiftPressed ? keyName : keyName.toLowerCase();
+        if (keyName != null && keyName.equals("-") && shiftPressed) {
+            keyName = "_";
+        }
+
+        return new Key(keyCode, keyName, shiftPressed, ctrlPressed);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

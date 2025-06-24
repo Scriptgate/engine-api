@@ -1,31 +1,29 @@
-apply plugin: 'java'
-apply plugin: 'maven'
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
 
-group 'net.scriptgate.engine'
-version '0.0.1-SNAPSHOT'
-
-sourceCompatibility = 1.8
+group = 'net.scriptgate.engine'
+version = '1.0.0'
 
 repositories {
     mavenCentral()
 }
 
-task createPom << {
-    pom {
-        project {
-            groupId project.group
-            artifactId project.name
-            version project.version
-            description 'POM was created with Gradle'
+publishing {
+    repositories {
+        maven {
+            name = 'GithubPackages'
+            url = 'https://maven.pkg.github.com/Scriptgate/scriptgate-engine'
+            credentials {
+                username = providers.gradleProperty('GITHUB_USERNAME').getOrNull()
+                password = providers.gradleProperty('GITHUB_TOKEN').getOrNull()
+            }
         }
-    }.writeTo("${project.libsDir}/${project.name}-${project.version}.pom")
-}
-
-task sourceJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
-}
-
-artifacts {
-    archives sourceJar
+    }
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
 }

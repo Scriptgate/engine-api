@@ -16,8 +16,8 @@ publishing {
             name = 'GithubPackages'
             url = 'https://maven.pkg.github.com/Scriptgate/engine-api'
             credentials {
-                username = providers.gradleProperty('githubUsername').getOrNull()
-                password = providers.gradleProperty('githubToken').getOrNull()
+                username = System.getenv('GITHUB_USERNAME')
+                password = System.getenv('GITHUB_TOKEN')
             }
         }
     }

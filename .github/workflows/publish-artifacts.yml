@@ -27,4 +27,7 @@ jobs:
       - name: Build
         run: ./gradlew build
       - name: Publish
-        run: ./gradlew publish -PgithubUsername=scriptgate -PgithubToken=${{ secrets.GITHUB_TOKEN }}
+        run: ./gradlew publish
+        env:
+          GITHUB_USERNAME: scriptgate
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
